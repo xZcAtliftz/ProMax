@@ -1,4 +1,4 @@
--- fm
+-- main color is 186, 181, 129
 
 do  
 	local ui =  game:GetService("CoreGui").RobloxGui.Modules.Profile.Utils:FindFirstChild("Roxy")  
@@ -884,9 +884,9 @@ function Library.new()
 
 			local LibraryFunction = {}
 
-			function LibraryFunction:AddLabel(options)
+			function LibraryFunction:AddLabel(name)
 
-				local visual = options.Title
+				local visual = name
 
 				local Frame = Instance.new("Frame")
 				local Text = Instance.new("TextLabel")
