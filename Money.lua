@@ -1,4 +1,5 @@
 -- main color is 186, 181, 129
+-- ff ver
 
 do  
 	local ui =  game:GetService("CoreGui").RobloxGui.Modules.Profile.Utils:FindFirstChild("Roxy")  
@@ -1243,10 +1244,10 @@ function Library.new()
 
 			end
 
-			function LibraryFunction:AddDropdown(options)
+			function LibraryFunction:AddDropdown(name,options)
 				local DropdownFunctions = false
-				local visualTitle = options.Title or "Dropdown : None"
-				local visualItem = options.Item or {}
+				local visualTitle = name or "Dropdown : None"
+				local visualItem = options.Values or {}
 				local visualcallback = options.callback or function(Item) return end 
 
 				local MainDropDown = Instance.new("Frame")
@@ -1515,14 +1516,14 @@ function Library.new()
 
 			end
 
-			function LibraryFunction:AddMultiDropdown(options)
+			function LibraryFunction:AddMultiDropdown(name,options)
 				local DropdownFunctions = false
 
 				local MultiDropdown = {}
-				local visualTitle = options.Title or "MultiDropdown : None"
-				local visualItem = options.Item or {}
+				local visualTitle = name or "MultiDropdown : None"
+				local visualItem = options.Values or {}
 				local visualcallback = options.callback or function(Item) return end 
-				local visualdefault = options.Default or {}
+				local visualdefault = options.setup or {}
 
 				local MainDropDown = Instance.new("Frame")
 				local UICorner = Instance.new("UICorner")
@@ -1728,14 +1729,14 @@ function Library.new()
 
 			end
 
-			function LibraryFunction:AddSlider(options)
+			function LibraryFunction:AddSlider(name,options)
 
 				local sliderfunc = {}
 
-				local visualTitle = options.Title or "Slider : nil"
-				local visualMax = options.Max or 100
-				local visualMin = options.Min or 0
-				local visualDefault = options.Default or 50
+				local visualTitle = name or "Slider : nil"
+				local visualMax = options.max or 100
+				local visualMin = options.min or 0
+				local visualDefault = options.value or 50
 				local visualcallback = options.callback or function() end
 
 				local MainSlider = Instance.new("Frame")
@@ -1943,9 +1944,9 @@ function Library.new()
 				return sliderfunc
 			end
 
-			function LibraryFunction:AddTextBox(options)
+			function LibraryFunction:AddTextBox(name,options)
 
-				local visualTitle = options.Title or "TextBox"
+				local visualTitle = name or "TextBox"
 				local visualplaceholder = options.Placeholder or "Placeholder"
 				local visualcallback = options.callback or function() end
 
@@ -2195,5 +2196,4 @@ function Library.new()
 	end)
 	return LibraryTab
 end
-
 return Library
