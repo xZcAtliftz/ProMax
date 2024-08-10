@@ -1,4 +1,4 @@
--- main color is 186, 181, 129
+-- fm
 
 do  
 	local ui =  game:GetService("CoreGui").RobloxGui.Modules.Profile.Utils:FindFirstChild("Roxy")  
@@ -1725,6 +1725,77 @@ function Library.new()
 					Scroll_Items.CanvasSize = UDim2.new(0,0,0,UIListLayout_5.AbsoluteContentSize.Y + 10)
 					DropdownFunctions = not DropdownFunctions
 				end)
+				local DropdownVisual = {}
+
+				function DropdownVisual:Clear()
+					TweenService:Create(
+						MainDropDown,
+						TweenInfo.new(.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out,0.1),
+						{Size = UDim2.new(0.975000024, 0, 0, 35)}
+					):Play()
+					DropdownFunctions = not DropdownFunctions
+					TitleDropDown.Text = tostring(visualTitle.." : ")
+					for i, v in next, Scroll_Items:GetChildren() do
+						if v:IsA("TextButton") then
+							v:Destroy()
+						end
+					end
+				end
+
+				function DropdownVisual:Add(value)
+
+					local ButtonBar = Instance.new("TextButton")
+					local ButtonBarUICorner = Instance.new("UICorner")
+
+					ButtonBar.Name = "ButtonBar"
+					ButtonBar.Parent = Scroll_Items
+					ButtonBar.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
+					ButtonBar.BorderSizePixel = 0
+					ButtonBar.ClipsDescendants = true
+					ButtonBar.Size = UDim2.new(1, -10, 0, 20)
+					ButtonBar.AutoButtonColor = false
+					ButtonBar.Font = Enum.Font.GothamBold
+					ButtonBar.Text = tostring(value)
+					ButtonBar.TextColor3 = Color3.fromRGB(255, 255, 255)
+					ButtonBar.TextSize = 12.000
+					ButtonBar.TextWrapped = true
+					ButtonBar.AutoButtonColor = false
+					ButtonBar.ClipsDescendants = true
+
+					ButtonBarUICorner.CornerRadius = UDim.new(0, 4)
+					ButtonBarUICorner.Parent = ButtonBar
+
+					ButtonBar.MouseEnter:Connect(function()
+						TweenService:Create(
+							ButtonBar,
+							TweenInfo.new(.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out,0.1),
+							{TextColor3 = Color3.fromRGB(186, 181, 129)}
+						):Play()
+					end)
+
+					ButtonBar.MouseLeave:Connect(function()
+						TweenService:Create(
+							ButtonBar,
+							TweenInfo.new(.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out,0.1),
+							{TextColor3 = Color3.fromRGB(255, 255, 255)}
+						):Play()
+					end)
+
+					ButtonBar.MouseButton1Down:Connect(function()
+						ButtonBar.TextSize = 0
+						TweenService:Create(
+							ButtonBar,
+							TweenInfo.new(.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out,0.1),
+							{TextSize = 12}
+						):Play()
+						TitleDropDown.Text = tostring(visualTitle.." : "..value)
+						CircleAnim(ButtonBar,Color3.fromRGB(255,255,255),Color3.fromRGB(255,255,255))
+						options.callback(value)
+					end)
+					Scroll_Items.CanvasSize = UDim2.new(0,0,0,UIListLayout_5.AbsoluteContentSize.Y + 10)
+				end
+
+				return DropdownVisual
 
 			end
 
