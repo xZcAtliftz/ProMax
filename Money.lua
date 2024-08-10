@@ -2196,5 +2196,4 @@ function Library.new()
 	return LibraryTab
 end
 
--- kuy
 return Library
