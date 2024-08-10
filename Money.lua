@@ -478,7 +478,7 @@ function Library.new()
 
 	local LibraryTab = {}
 
-	function LibraryTab:CreateTab(Title)
+	function LibraryTab:CreateTap(Title)
 		PageOrders = PageOrders + 1
 
 		local name = tostring(Title) or tostring(math.random(500,100000))
@@ -2195,4 +2195,6 @@ function Library.new()
 	end)
 	return LibraryTab
 end
+
+-- kuy
 return Library
