@@ -1,5 +1,3 @@
--- main color is 186, 181, 129
-
 do  
 	local ui =  game:GetService("CoreGui").RobloxGui.Modules.Profile.Utils:FindFirstChild("Roxy")  
 
@@ -1196,7 +1194,6 @@ function Library.new()
 			function LibraryFunction:AddButton(name,callback)
 
 				local visualTitle = name or "Button"
-				local visualcallback = callback or function() end
 
 				local Frame_2 = Instance.new("Frame")
 				local UICorner_11 = Instance.new("UICorner")
@@ -1238,7 +1235,7 @@ function Library.new()
 					--CircleAnim(TextButton_2,Color3.fromRGB(0, 0, 0),Color3.fromRGB(0, 0, 0))
 					wait(.2)
 					Ripple(TextButton_2)
-					pcall(options.callback)
+					pcall(callback)
 				end)
 
 			end
