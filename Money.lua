@@ -1,5 +1,4 @@
 -- main color is 186, 181, 129
--- ff ver
 
 do  
 	local ui =  game:GetService("CoreGui").RobloxGui.Modules.Profile.Utils:FindFirstChild("Roxy")  
