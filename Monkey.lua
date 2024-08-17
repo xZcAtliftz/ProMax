@@ -1,3 +1,5 @@
+-- main color is 186, 181, 129
+
 do  
 	local ui =  game:GetService("CoreGui").RobloxGui.Modules.Profile.Utils:FindFirstChild("Roxy")  
 
@@ -925,12 +927,11 @@ function Library.new()
 
 			end
 
-			function LibraryFunction:AddToggle(name,options)
-
+			function LibraryFunction:AddToggle(name, options)
 				local visualTitle = name or "Toggle"
 				local visualdefault = options.Stats or false
 				local visualcallback = options.callback or function() end
-
+			
 				local MainToggle = Instance.new("Frame")
 				local UICorner_12 = Instance.new("UICorner")
 				local Text_2 = Instance.new("TextLabel")
@@ -939,7 +940,7 @@ function Library.new()
 				local MainToggle_3 = Instance.new("ImageLabel")
 				local TextButton_3 = Instance.new("TextButton")
 				local Text_3 = Instance.new("TextLabel")
-
+			
 				MainToggle.Name = "MainToggle"
 				MainToggle.Parent = Right
 				MainToggle.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
@@ -947,10 +948,10 @@ function Library.new()
 				MainToggle.BorderSizePixel = 0
 				MainToggle.ClipsDescendants = true
 				MainToggle.Size = UDim2.new(0.975000024, 0, 0, 36)
-
+			
 				UICorner_12.CornerRadius = UDim.new(0, 4)
 				UICorner_12.Parent = MainToggle
-
+			
 				Text_2.Name = "Text"
 				Text_2.Parent = MainToggle
 				Text_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -966,7 +967,7 @@ function Library.new()
 				Text_2.TextWrapped = true
 				Text_2.TextXAlignment = Enum.TextXAlignment.Left
 				Text_2.TextYAlignment = Enum.TextYAlignment.Top
-
+			
 				MainToggle_2.Name = "MainToggle"
 				MainToggle_2.Parent = MainToggle
 				MainToggle_2.AnchorPoint = Vector2.new(0.5, 0)
@@ -975,10 +976,10 @@ function Library.new()
 				MainToggle_2.ClipsDescendants = true
 				MainToggle_2.Position = UDim2.new(0.899999976, 0, 0, 5)
 				MainToggle_2.Size = UDim2.new(0, 23, 0, 23)
-
+			
 				UICorner_13.CornerRadius = UDim.new(0, 6)
 				UICorner_13.Parent = MainToggle_2
-
+			
 				MainToggle_3.Name = "ToggleInner"
 				MainToggle_3.Parent = MainToggle_2
 				MainToggle_3.AnchorPoint = Vector2.new(0.5, 0.5)
@@ -988,21 +989,7 @@ function Library.new()
 				MainToggle_3.Size = UDim2.new(0, 0, 0, 0)
 				MainToggle_3.Image = "http://www.roblox.com/asset/?id=6031068421"
 				MainToggle_3.ImageColor3 = Color3.fromRGB(186, 181, 129)
-
-				--[[
-				MainToggle_3.Name = "MainToggle"
-				MainToggle_3.Parent = MainToggle_2
-				MainToggle_3.AnchorPoint = Vector2.new(0.5, 0.5)
-				MainToggle_3.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
-				MainToggle_3.ClipsDescendants = true
-				MainToggle_3.Position = UDim2.new(0.5, 0, 0.5, 0)
-				MainToggle_3.Visible = false
-				MainToggle_3.Size = UDim2.new(0, 0, 0, 0)
-				MainToggle_3.Image = "http://www.roblox.com/asset/?id=6031068421"
-				MainToggle_3.ImageColor3 = Color3.fromRGB(186, 181, 129)
-				MainToggle_3.ImageTransparency = 1.000
-				]]
-
+			
 				TextButton_3.Name = ""
 				TextButton_3.Parent = MainToggle
 				TextButton_3.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
@@ -1013,7 +1000,7 @@ function Library.new()
 				TextButton_3.Text = ""
 				TextButton_3.TextColor3 = Color3.fromRGB(255, 255, 255)
 				TextButton_3.TextSize = 14.000
-
+			
 				Text_3.Name = "Text"
 				Text_3.Parent = MainToggle
 				Text_3.AnchorPoint = Vector2.new(0.5, 0)
@@ -1030,88 +1017,39 @@ function Library.new()
 				Text_3.TextWrapped = true
 				Text_3.TextXAlignment = Enum.TextXAlignment.Left
 				Text_3.TextYAlignment = Enum.TextYAlignment.Top
-
-				local visual = {toggle = false , togglefunction ={
-
-				},}
-
-				--[[
-				TextButton_3.MouseEnter:Connect(function()
-					if visual.toggle == false and visual.lock == true then
-						TweenService:Create(
-							Text_2,
-							TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
-							{TextTransparency = 0}
-						):Play()
-					end
-				end)
-
-				TextButton_3.MouseLeave:Connect(function()
-					if visual.toggle == false and visual.lock == true then
-						TweenService:Create(
-							Text_2,
-							TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
-							{TextTransparency = 0.5}
-						):Play()
-					end
-				end)
-				TextButton_3.MouseButton1Down:Connect(function()
-					--CircleAnim(TextButton_3,Color3.fromRGB(255,255,255),Color3.fromRGB(255,255,255))
-					if visual.toggle == false and visual.lock == true then
-						TweenService:Create(
-							MainToggle_3,
-							TweenInfo.new(0.3, Enum.EasingStyle.Back, Enum.EasingDirection.Out),
-							{Size = UDim2.new(0, 29, 0, 29)}
-						):Play()
-					elseif visual.lock == true then
-						TweenService:Create(
-							MainToggle_3,
-							TweenInfo.new(0.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
-							{Size = UDim2.new(0, 0, 0, 0)}
-						):Play()
-					end
-					if  visual.lock == true  then
-						visual.toggle = not visual.toggle
-						options.callback(visual.toggle)
-					end
-				end)
-
-				if visualdefault == true then
-					--CircleAnim(TextButton_3,Color3.fromRGB(255,255,255),Color3.fromRGB(255,255,255))
-					TweenService:Create(
-						MainToggle_3,
-						TweenInfo.new(0.2, Enum.EasingStyle.Back, Enum.EasingDirection.Out),
-						{Size = UDim2.new(0, 29, 0, 29)}
-					):Play()
-					if  visual.lock == true  then
-						visual.toggle = not visual.toggle
-						options.callback(visual.toggle)
-					end
-				end
-]]
-
-
-				TextButton_3.MouseButton1Click:Connect(function()
-					if visual.toggle == false then
-						tween(MainToggle_3,0.25,{Size = UDim2.new(0,29,0,29)})
-						tween(Text_2,0.1,{TextTransparency = 0})
+			
+				local visual = {
+					toggle = false,
+					togglefunction = {},
+				}
+			
+				local function updateToggle(state)
+					if state then
+						tween(MainToggle_3, 0.25, {Size = UDim2.new(0, 29, 0, 29)})
+						tween(Text_2, 0.1, {TextTransparency = 0})
 					else
-						tween(MainToggle_3,0.25,{Size = UDim2.new(0,0,0,0)})
-						tween(Text_2,0.1,{TextTransparency = 0.6})
-					end 
-					visual.toggle = not visual.toggle
-					options.callback(visual.toggle)
-				end)
-
-				if visualdefault == true then
-					tween(MainToggle_3,0.25,{Size = UDim2.new(0,29,0,29)})
-					tween(Text_2,0.1,{TextTransparency = 0})
-					visual.toggle = true ; 
+						tween(MainToggle_3, 0.25, {Size = UDim2.new(0, 0, 0, 0)})
+						tween(Text_2, 0.1, {TextTransparency = 0.6})
+					end
+					visual.toggle = state
 					options.callback(visual.toggle)
 				end
-
-
-			end
+			
+				TextButton_3.MouseButton1Click:Connect(function()
+					updateToggle(not visual.toggle)
+				end)
+			
+				if visualdefault == true then
+					updateToggle(true)
+				end
+			
+				-- Add the Change function to the visual table
+				function visual:Change(newState)
+					updateToggle(newState)
+				end
+			
+				return visual
+			end			
 
 			function LibraryFunction:AddToggleButton(options)
 
