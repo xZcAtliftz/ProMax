@@ -1,1 +1,1 @@
-scripts online
+scripts offline
