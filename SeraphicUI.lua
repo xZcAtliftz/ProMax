@@ -7,10 +7,10 @@ local LocalPlayer = game:GetService("Players").LocalPlayer
 local Mouse = LocalPlayer:GetMouse()
 
 getgenv().Settings = {
-	Name = "Seraphic Hub | Premium Edition",
-	DateType = 1,
-	Logo = 83231088025993,
-	Key = Enum.KeyCode.RightControl
+    Name = "Luxury Hub | Premium Edition",
+    DateType = 1,
+    Logo = 16796144919,
+    Key = Enum.KeyCode.RightControl
 }
 
 function MakeDraggable(topbarobject, object)
