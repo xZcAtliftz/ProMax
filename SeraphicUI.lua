@@ -443,7 +443,7 @@ function Library:Init()
 	Name.Position = UDim2.new(0.13438046, 0, 0.308539957, 0)
 	Name.Size = UDim2.new(0, 160, 0, 50)
 	Name.Font = Enum.Font.GothamBold
-	Name.Text = "Seraphic"
+	Name.Text = "Luxury"
 	Name.TextColor3 = Color3.fromRGB(255, 255, 255)
 	Name.TextScaled = true
 	Name.TextSize = 14.000
